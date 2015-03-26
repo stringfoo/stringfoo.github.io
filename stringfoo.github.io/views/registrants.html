@@ -1,0 +1,25 @@
+<center>
+<div class="  h3 panel-heading "><strong>Registrants </strong></div></br>
+<div class="panel panel-default">
+<table class=" table panel">
+	<tr>
+		<td>No.</td>
+		<td>First Name</td>
+		<td>Last Name</td>
+		<td>Age</td>
+		<td>Email</td>
+		<td>Action</td>
+	</tr>
+	<tr ng-repeat="testing in registrants">
+		<td>{{$index+1}}</td>
+		<td>{{testing.firstName}}</td>
+		<td>{{testing.lastName}}</td>
+		<td>{{testing.age}}</td>
+		<td>{{testing.email}}</td>
+		<td><input type="button" ng-click="removeRegistrant(testing)" value="Remove" /></td>	
+	</tr>	
+</table>
+</div>
+<p>Total Number of Registrants: {{registrants.length}}</p>
+</center>
+

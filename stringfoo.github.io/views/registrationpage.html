@@ -1,0 +1,55 @@
+<center>
+<form  class=" h3 bold container" name="registrationForm">
+	<table class="table jumbotron panel panel-default">
+		<strong><thead class="panel-heading">Registration Form</thead></strong></br></br>
+		<tr>
+			<td><input placeholder="First Name" class="form-control" type="text" name="fName" ng-model="registrant.firstName" required="required" /></td>
+		</tr>
+		<tr>			
+			<td><input class="form-control" placeholder="Last Name" type="text" name="lname" ng-model="registrant.lastName" required="required" /></td>
+		</tr>
+		<tr>
+			
+			<td>
+				<input class="form-control" placeholder="Age" type="number" name="age" ng-model="registrant.age" ng-minlength="1" ng-maxlength="120" required="required" />
+				<small ng-show="!registrationForm.age.$pristine && registrationForm.age.$invalid" style="color: red">Input a valid age!</small>
+			</td>
+		</tr>
+		<tr>
+			
+			<td>
+				<input class="form-control" placeholder="E-mail Address" type="email" name="email" ng-model="registrant.email" required="required" />
+				<small ng-show="!registrationForm.email.$pristine && registrationForm.email.$invalid" style="color: red">Input a valid email!</small>
+			</td>
+		</tr>
+		<tr>
+			<td><input class="btn btn-default" type="button" ng-click="register()" value="Submit" ng-disabled="registrationForm.$invalid || registrationForm.$pristine" /></td>
+		</tr>
+	</table>
+</form>
+<center>
+<div class="h3 panel-heading "><strong>Registrants </strong></div></br>
+<div class="panel panel-default">
+<table class=" table panel">
+	<tr>
+		<td>No.</td>
+		<td>First Name</td>
+		<td>Last Name</td>
+		<td>Age</td>
+		<td>Email</td>
+		<td>Action</td>
+	</tr>
+	<tr ng-repeat="testing in registrants">
+		<td>{{$index+1}}</td>
+		<td>{{testing.firstName}}</td>
+		<td>{{testing.lastName}}</td>
+		<td>{{testing.age}}</td>
+		<td>{{testing.email}}</td>
+		<td><input type="button" ng-click="removeRegistrant(testing)" value="Remove" /></td>	
+	</tr>	
+</table>
+</div>
+</center>
+<p>Total Number of Registrants: {{registrants.length}}</p>
+
+</center>
